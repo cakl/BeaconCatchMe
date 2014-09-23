@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface ViewController : UIViewController <CLLocationManagerDelegate>
+@interface ViewController : UIViewController <CLLocationManagerDelegate, CBPeripheralManagerDelegate>
 
 @property (strong, nonatomic) CLBeaconRegion *youBeaconRegion;
 @property (strong, nonatomic) CLBeaconRegion *meBeaconRegion;

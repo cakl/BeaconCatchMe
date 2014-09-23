@@ -25,6 +25,9 @@
     self.myMajorLabel.text = [NSString stringWithFormat:@"Major: %@", self.majorNumber];
     self.myMinorLabel.text = [NSString stringWithFormat:@"Minor: %@", self.minorNumber];
     
+    self.meBeaconData = [self.meBeaconRegion peripheralDataWithMeasuredPower:nil];
+    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"52495334-5696-4DAE-BEC7-98D44A30FFDB"];
     self.youBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"YOU"];
     self.meBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
@@ -115,14 +118,6 @@
     
     NSString *minor = [NSString stringWithFormat:@"Minor: %@", foundBeacon.minor];
     self.minorLabel.text = minor;
-}
-
-- (IBAction)buttonClicked:(id)sender {
-    // Get the beacon data to advertise
-    self.meBeaconData = [self.meBeaconRegion peripheralDataWithMeasuredPower:nil];
-    
-    // Start the peripheral manager
-    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
 }
 
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral
