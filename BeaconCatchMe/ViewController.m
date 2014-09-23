@@ -22,9 +22,15 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     
+    self.myMajorLabel.text = [NSString stringWithFormat:@"Major: %@", self.majorNumber];
+    self.myMinorLabel.text = [NSString stringWithFormat:@"Minor: %@", self.minorNumber];
+    
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"52495334-5696-4DAE-BEC7-98D44A30FFDB"];
     self.youBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"YOU"];
-    self.meBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:10 identifier:@"ME"];
+    self.meBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                  major:[self.majorNumber shortValue]
+                                                                  minor:[self.minorNumber shortValue]
+                                                             identifier:@"ME"];
     
     // Tell location manager to start monitoring for the beacon region
     [self.locationManager requestAlwaysAuthorization];

@@ -7,6 +7,7 @@
 //
 
 #import "StartViewController.h"
+#import "ViewController.h"
 
 @interface StartViewController ()
 
@@ -14,24 +15,26 @@
 
 @implementation StartViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"BROADCAST"])
+    {
+        // Get reference to the destination view controller
+        ViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        NSNumberFormatter * f = [[NSNumberFormatter alloc] init];
+        [f setNumberStyle:NSNumberFormatterDecimalStyle];
+        NSNumber * majorNumber = [f numberFromString:self.majorTextField.text];
+        NSNumber * minorNumber = [f numberFromString:self.minorTextField.text];
+        
+        vc.majorNumber = majorNumber;
+        vc.minorNumber = minorNumber;
+    }
 }
-*/
+
+- (IBAction)buttonClicked:(id)sender {
+    
+}
 
 @end

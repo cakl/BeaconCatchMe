@@ -29,6 +29,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *myMajorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *myMinorLabel;
 
+@property (strong, nonatomic) NSNumber *majorNumber;
+@property (strong, nonatomic) NSNumber *minorNumber;
+
 @property (weak, nonatomic) IBOutlet UIView *proximityColorView;
 
 

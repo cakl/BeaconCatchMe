@@ -113,7 +113,8 @@
                                 <rect key="frame" x="17" y="121" width="293" height="289"/>
                                 <state key="normal" backgroundImage="BroadcastButton"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Mzo-wi-RRG"/>
+                                    <action selector="buttonClicked:" destination="R8l-rt-5cL" eventType="touchUpInside" id="Xwj-LG-wDx"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="BROADCAST" id="Mzo-wi-RRG"/>
                                 </connections>
                             </button>
                         </subviews>

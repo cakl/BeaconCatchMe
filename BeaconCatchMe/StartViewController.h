@@ -10,14 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface StartViewController : UIViewController <CBPeripheralManagerDelegate, CLLocationManagerDelegate>
+@interface StartViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *majorTextField;
 @property (weak, nonatomic) IBOutlet UITextField *minorTextField;
-
-@property (strong, nonatomic) CLBeaconRegion *myBeaconRegion;
-@property (strong, nonatomic) NSDictionary *myBeaconData;
-
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 
 @end
