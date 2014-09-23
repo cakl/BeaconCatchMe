@@ -14,6 +14,12 @@
 		AC10E60719D1AB8D004C7695 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC10E60619D1AB8D004C7695 /* Images.xcassets */; };
 		AC10E60A19D1AB8D004C7695 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC10E60819D1AB8D004C7695 /* LaunchScreen.xib */; };
 		AC10E61619D1AB8D004C7695 /* BeaconCatchMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AC10E61519D1AB8D004C7695 /* BeaconCatchMeTests.m */; };
+		AC74477319D1AF28009179BB /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC74477219D1AF28009179BB /* StartViewController.m */; };
+		AC74477519D1B7E1009179BB /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC74477419D1B7E1009179BB /* CoreBluetooth.framework */; };
+		AC74477719D1B7EC009179BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC74477619D1B7EC009179BB /* Foundation.framework */; };
+		AC74477919D1B7F6009179BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC74477819D1B7F6009179BB /* UIKit.framework */; };
+		AC74477B19D1B7FE009179BB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC74477A19D1B7FE009179BB /* CoreGraphics.framework */; };
+		AC74477D19D1B808009179BB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC74477C19D1B808009179BB /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +46,13 @@
 		AC10E60F19D1AB8D004C7695 /* BeaconCatchMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeaconCatchMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC10E61419D1AB8D004C7695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC10E61519D1AB8D004C7695 /* BeaconCatchMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeaconCatchMeTests.m; sourceTree = "<group>"; };
+		AC74477119D1AF28009179BB /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		AC74477219D1AF28009179BB /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		AC74477419D1B7E1009179BB /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		AC74477619D1B7EC009179BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AC74477819D1B7F6009179BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AC74477A19D1B7FE009179BB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AC74477C19D1B808009179BB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +60,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC74477D19D1B808009179BB /* CoreLocation.framework in Frameworks */,
+				AC74477B19D1B7FE009179BB /* CoreGraphics.framework in Frameworks */,
+				AC74477919D1B7F6009179BB /* UIKit.framework in Frameworks */,
+				AC74477719D1B7EC009179BB /* Foundation.framework in Frameworks */,
+				AC74477519D1B7E1009179BB /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +81,11 @@
 		AC10E5ED19D1AB8D004C7695 = {
 			isa = PBXGroup;
 			children = (
+				AC74477C19D1B808009179BB /* CoreLocation.framework */,
+				AC74477A19D1B7FE009179BB /* CoreGraphics.framework */,
+				AC74477819D1B7F6009179BB /* UIKit.framework */,
+				AC74477619D1B7EC009179BB /* Foundation.framework */,
+				AC74477419D1B7E1009179BB /* CoreBluetooth.framework */,
 				AC10E5F819D1AB8D004C7695 /* BeaconCatchMe */,
 				AC10E61219D1AB8D004C7695 /* BeaconCatchMeTests */,
 				AC10E5F719D1AB8D004C7695 /* Products */,
@@ -86,6 +109,8 @@
 				AC10E60019D1AB8D004C7695 /* ViewController.h */,
 				AC10E60119D1AB8D004C7695 /* ViewController.m */,
 				AC10E60319D1AB8D004C7695 /* Main.storyboard */,
+				AC74477119D1AF28009179BB /* StartViewController.h */,
+				AC74477219D1AF28009179BB /* StartViewController.m */,
 				AC10E60619D1AB8D004C7695 /* Images.xcassets */,
 				AC10E60819D1AB8D004C7695 /* LaunchScreen.xib */,
 				AC10E5F919D1AB8D004C7695 /* Supporting Files */,
@@ -168,6 +193,7 @@
 				TargetAttributes = {
 					AC10E5F519D1AB8D004C7695 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = JNT73T9JPV;
 					};
 					AC10E60E19D1AB8D004C7695 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -220,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC10E60219D1AB8D004C7695 /* ViewController.m in Sources */,
+				AC74477319D1AF28009179BB /* StartViewController.m in Sources */,
 				AC10E5FF19D1AB8D004C7695 /* AppDelegate.m in Sources */,
 				AC10E5FC19D1AB8D004C7695 /* main.m in Sources */,
 			);
@@ -345,6 +372,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BeaconCatchMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = BeaconCatchMe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -414,6 +443,7 @@
 				AC10E61B19D1AB8D004C7695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AC10E61C19D1AB8D004C7695 /* Build configuration list for PBXNativeTarget "BeaconCatchMeTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +452,7 @@
 				AC10E61E19D1AB8D004C7695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
