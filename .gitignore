@@ -1,0 +1,20 @@
+.DS_Store
+
+# Cocoapods
+Podfile.lock
+Pods/
+
+# Xcode
+DerivedData/
+build/
+*.xcodeproj/project.xcworkspace/xcuserdata/**/*
+*.xcodeproj/xcuserdata/**/*
+*.xcworkspace
+
+# AppCode
+.idea/
+
+# OCLint
+xcodebuild.log
+compile_commands.json
+Linsebuehl.gpx
