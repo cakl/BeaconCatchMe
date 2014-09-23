@@ -16,11 +16,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     // Initialize location manager and set ourselves as the delegate
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
+    
+    [self.locationManager requestAlwaysAuthorization];
     
     self.myMajorLabel.text = [NSString stringWithFormat:@"Major: %@", self.majorNumber];
     self.myMinorLabel.text = [NSString stringWithFormat:@"Minor: %@", self.minorNumber];
@@ -36,7 +37,6 @@
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     
     // Tell location manager to start monitoring for the beacon region
-    [self.locationManager requestAlwaysAuthorization];
     [self.locationManager startMonitoringForRegion:self.youBeaconRegion];
     [self.locationManager requestStateForRegion:self.youBeaconRegion];
     
@@ -77,6 +77,15 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
     [self.locationManager stopRangingBeaconsInRegion:self.youBeaconRegion];
     self.connectionStatusLabel.text = @"No Beacon Found!";
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+    NSLog(@"%d", [CLLocationManager authorizationStatus]);
+}
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error{
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 -(void)locationManager:(CLLocationManager*)manager
