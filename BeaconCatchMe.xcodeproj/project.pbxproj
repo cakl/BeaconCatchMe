@@ -194,6 +194,11 @@
 					AC10E5F519D1AB8D004C7695 = {
 						CreatedOnToolsVersion = 6.0.1;
 						DevelopmentTeam = JNT73T9JPV;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					AC10E60E19D1AB8D004C7695 = {
 						CreatedOnToolsVersion = 6.0.1;
