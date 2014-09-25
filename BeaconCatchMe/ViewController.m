@@ -33,9 +33,9 @@
                                                                   minor:[self.minorNumber shortValue]
                                                              identifier:@"ME"];
     
-    //self.meBeaconData = [self.meBeaconRegion peripheralDataWithMeasuredPower:nil];
+    self.meBeaconData = [self.meBeaconRegion peripheralDataWithMeasuredPower:nil];
     
-    self.meBeaconData =  @{CBAdvertisementDataLocalNameKey:@"my-peripheral", CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"52495334-5696-4DAE-BEC7-98D44A30FFDB"]]};
+    //self.meBeaconData =  @{CBAdvertisementDataLocalNameKey:@"my-peripheral", CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"52495334-5696-4DAE-BEC7-98D44A30FFDB"]]};
     
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     
