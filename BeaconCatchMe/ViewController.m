@@ -17,34 +17,59 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Initialize location manager and set ourselves as the delegate
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self;
-    
-    [self.locationManager requestAlwaysAuthorization];
-    
     self.myMajorLabel.text = [NSString stringWithFormat:@"Major: %@", self.majorNumber];
     self.myMinorLabel.text = [NSString stringWithFormat:@"Minor: %@", self.minorNumber];
     
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"52495334-5696-4DAE-BEC7-98D44A30FFDB"];
-    self.youBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"YOU"];
-    self.meBeaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                  major:[self.majorNumber shortValue]
-                                                                  minor:[self.minorNumber shortValue]
-                                                             identifier:@"ME"];
+    NSString *identifier = @"52495334-5696-4DAE-BEC7-98D44A30FFDB";
     
-    self.meBeaconData = [self.meBeaconRegion peripheralDataWithMeasuredPower:nil];
-    
-    //self.meBeaconData =  @{CBAdvertisementDataLocalNameKey:@"my-peripheral", CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:@"52495334-5696-4DAE-BEC7-98D44A30FFDB"]]};
+    self.meBeaconData = @{CBAdvertisementDataLocalNameKey:@"my-peripheral", CBAdvertisementDataServiceUUIDsKey:@[[CBUUID UUIDWithString:identifier]]};
     
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
     
     // Tell location manager to start monitoring for the beacon region
-    [self.locationManager startMonitoringForRegion:self.youBeaconRegion];
-    [self.locationManager requestStateForRegion:self.youBeaconRegion];
     
 }
 
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral
+{
+    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
+    {
+        // Update our status label
+        self.statusLabel.text = @"Broadcasting!";
+        
+        // Start broadcasting
+        [self.peripheralManager startAdvertising:self.meBeaconData];
+    }
+    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
+    {
+        // Update our status label
+        self.statusLabel.text = @"Stopped!";
+        
+        // Bluetooth isn't on. Stop broadcasting
+        [self.peripheralManager stopAdvertising];
+    }
+    else if (peripheral.state == CBPeripheralManagerStateUnsupported)
+    {
+        self.statusLabel.text = @"Unsupported!";
+    }
+}
+
+- (void)startDetectingBeacons
+{
+    if (!self.centralManager) self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    
+    //detectorTimer = [NSTimer scheduledTimerWithTimeInterval:UPDATE_INTERVAL target:self selector:@selector(reportRangesToDelegates:) userInfo:nil repeats:YES];
+}
+
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral
+     advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+{
+    NSLog(@"UUID: %@", [peripheral identifier]);
+    NSLog(@"UUID: %@", [peripheral name]);
+    NSLog(@"RSSI: %d", [RSSI intValue]);
+}
+
+/*
 -(void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
@@ -131,34 +156,8 @@
     NSString *minor = [NSString stringWithFormat:@"Minor: %@", foundBeacon.minor];
     self.minorLabel.text = minor;
 }
+ */
 
--(void)peripheralManagerDidUpdateState:(CBPeripheralManager*)peripheral
-{
-    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
-    {
-        // Update our status label
-        self.statusLabel.text = @"Broadcasting!";
-        
-        // Start broadcasting
-        [self.peripheralManager startAdvertising:self.meBeaconData];
-    }
-    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
-    {
-        // Update our status label
-        self.statusLabel.text = @"Stopped!";
-        
-        // Bluetooth isn't on. Stop broadcasting
-        [self.peripheralManager stopAdvertising];
-    }
-    else if (peripheral.state == CBPeripheralManagerStateUnsupported)
-    {
-        self.statusLabel.text = @"Unsupported!";
-    }
-}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
